@@ -1,0 +1,45 @@
+1. RNG:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){
+	srand(time(NULL)); //srand(time(NULL)) will generates number number depends on UTE (time), without (time(NULL)) the number will stays the same
+
+							  //if put 100+1 then the number will be between 1-100
+	int cislo = rand() % 100; //rand will then use the number the seed gives and then gives the random number between 0-100 
+
+	printf("Nahodne cislo: %d", cislo);
+	return 0;
+}
+
+2. Mince:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){
+	srand(time(NULL)); 
+	int cislo = rand() % 1;
+	if (cislo == 0) {
+		printf("panna");
+	}
+	else {
+		printf("orel");
+	}
+
+}
+
+3. Dice (WIP):
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main (){
+	srand(time(NULL));
+
+	for (int i = 0; i <= 6; i++) {
+		int i = rand() % 6 + 1;
+		int vysledek = i
+	}
+}
