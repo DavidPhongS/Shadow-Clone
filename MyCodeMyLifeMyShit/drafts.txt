@@ -30,16 +30,54 @@ int main (){
 
 }
 
-3. Dice (WIP):
+3. Dice:
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
-int main (){
+int main() { 
 	srand(time(NULL));
+	//kostka s hodnotami 12-16
+	int kostka = rand() % 5 + 12; // 5 la so lan so co the quay, + 12 la tu so 12 tro len. Co nghia la tu so 12 se generate 5 so 12,13,14,15,16
+	printf("padlo %d", kostka);
+	return 0;
+}
 
-	for (int i = 0; i <= 6; i++) {
-		int i = rand() % 6 + 1;
-		int vysledek = i
+4. Random number between max and min:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	srand(time(NULL));
+	int max, min, random;
+	printf("Zadej max: ");
+	scanf_s("%d", &max);
+
+	printf("Zadej min: ");
+	scanf_s("%d", &min);
+
+	int rozdil = max - min + 1;  //Example: min la 3 max la 9 rozdil = 9-3+1 = 8 
+
+	for (int i = 0; i < 10; i++) {
+		random = rand() % rozdil + min; // Generate tu 0 - 8, + min = 3 la 3 - 8
+			printf("Vysledek: %d\n", random);
 	}
+	return 0;
+}
+
+5. Generate 0-1 in float:
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+	srand(time(NULL));
+	float random;
+
+	for (int i = 0; i < 10; i++) {
+	random = (float)rand() / RAND_MAX;  // (float) = doi data. rand() always generate between 0 to rand_max and bc we use rand() to devide rand_max thats why it gonna be between 0.00 to 1.00
+	printf("Nahodna hodnota: %f\n", random);
+	}
+	return 0;
 }
