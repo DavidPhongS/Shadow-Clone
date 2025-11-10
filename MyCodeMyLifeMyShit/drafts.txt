@@ -81,3 +81,48 @@ int main() {
 	}
 	return 0;
 }
+
+6. Change every 2nd character to '#':
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main() {
+	char string[41];
+
+	printf("Zadej string (max je 40 btw) : ");
+	scanf_s("%40s", string, 40);
+
+	int i = 1;
+	while (string[i] != '\0'){
+		string[i] = '#';
+		i += 2;
+	}
+	printf("Vysledek: %s", string);
+	return 0;
+	}
+
+7. Check samohlasky:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+
+int main() {
+	char string[41];
+
+	printf("Zadej string (max je 40 btw a napis to maly pls) : ");
+	scanf_s("%40s", string, 40);
+
+	int vys = 0;
+	int i = 0;
+	while (string[i] != '\0') {
+		if (string[i] == 'a' || string[i] == 'e' || string[i] == 'i' || string[i] == 'o' || string[i] == 'u') {
+			vys++;
+		}
+		i++;
+	}
+	printf("%d", vys);
+	return 0;
+}
