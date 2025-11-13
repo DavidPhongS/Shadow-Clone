@@ -126,3 +126,68 @@ int main() {
 	printf("%d", vys);
 	return 0;
 }
+
+8. String's length:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char slovo[40];
+	
+	printf("Zadej slovo: ");
+	scanf_s(" %39s", slovo);
+	
+	int delka = strlen(slovo);
+	
+	printf("Zadal jsi slovo %s a ma delku %d", slovo, delka);
+	
+	return 0;
+}
+
+9. Compare strings:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char string[41], string2[41];
+	printf("Zadej string pls (max 40): ");
+	scanf_s(" %40s", string, 40); //neu dung scanf khong thi ko can 40 o cuoi
+
+	printf("\nZadej dalsi string pls (max 40): ");
+	scanf_s(" %40s", string2, 40); //phai co %40s no la max + ko co thi an loz
+
+	if (strcmp (string2, string) == 0) {
+		printf("\nJe stejny\n\n\n");
+	}
+	else {
+		printf("\nNeni stejny\n\n\n");
+	}
+	return 0;
+}
+
+10. Palindrom string:
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+	char string[16], string2[16];
+	printf("Zadej string pls (max 15): ");
+	scanf_s("%15s", string, 15);
+
+	int delka = strlen(string);
+
+	for (int i = 0; i < delka; i++) {
+		string2[i] = string[delka - i - 1];
+	}
+
+	string2[delka] = '\0';
+	printf("\n%s", string2);
+
+	if (strcmp(string, string2) == 0) {
+		printf("\n\nJe to palindrom\n");
+	}
+	else {
+		printf("\n\nNeni to palindrom\n");
+	}
+	return 0;
+}
