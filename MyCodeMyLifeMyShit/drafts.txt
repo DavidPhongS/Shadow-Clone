@@ -191,3 +191,128 @@ int main() {
 	}
 	return 0;
 }
+
+11. Characters to ASCII:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main(){
+	char string[51];
+	printf("Zadej string pls diky (max 50 btw): ");
+	scanf_s("%50s", &string, 50);
+
+	int delka = strlen(string);
+
+	for (int i = 0; i < delka; i++){
+		printf("\nZnak '%c' je v ASCII kod '%d'", string[i], string[i]);
+	}
+
+	return 0;
+}
+
+12. Check password:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+	char string[51];
+	printf("Zadej string pls diky (max 50 btw): ");
+	scanf_s("%50s", &string, 50);
+
+	int delka = strlen(string);
+	int mala = 0, velka = 0, cislo = 0, znak = 0;
+
+	for (int i = 0; i < delka; i++) {
+		if (string[i] >= 'a' && string[i] <= 'z') {
+			mala++;
+		}
+		else if (string[i] >= 'A' && string[i] <= 'Z') {
+			velka++;
+		}
+		else if (string[i] >= '0' && string[i] <= '9') {
+			cislo++;
+		}
+		else if (string[i] >= '!' && string[i] <= '/') {
+			znak++;
+		}
+	}
+
+	printf("\n%d mala, %d velka, %d cislo, %d znak\n", mala, velka, cislo, znak);
+
+	if (mala == 3 && velka == 2 && cislo == 1 && znak == 1) {
+		printf("\nKrasne heslo\n");
+	}
+	else {
+		printf("\nNehezke heslo\n");
+	}
+	return 0;
+}
+
+13. Move string:
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+int main() {
+	char string[51]; int cislo;
+	printf("Zadej string pls diky (max 50 btw): ");
+	scanf_s("%50s", &string, 50);
+
+	printf("Zadej cislo o kolik to ma posunout: ");
+	scanf_s("%d", &cislo);
+
+	int delka = strlen(string);
+	printf("Puvodni string: %s", string);
+
+	for (int i = 0; i < delka; i++) {
+		string[i] = string[i] + cislo;
+	}
+	printf("\nNovy string: %s", string);
+	
+	return 0;
+}
+
+14. Worldle (WIP):
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
+
+int main() {
+	char guess[6];
+	char good1[] = "David";
+	char good2[] = "Domca";
+	char good3[] = "Chleb";
+	char good4[] = "Seven";
+	char good[6];
+
+	srand(time(NULL));
+	int random = rand() % 4 + 1;
+	if (random == 1) {
+		strcpy_s(good, good1);
+	}
+	else if (random == 2) {
+		strcpy_s(good, good2);
+	}
+	else if (random == 3) {
+		strcpy_s(good, good3);
+	}
+	else if (random == 4) {
+		strcpy_s(good, good4);
+	}
+	printf("%s\n\n", good);
+	printf("Hadej string (max 5 diky): ");
+	scanf_s("%5s", guess, 5);
+
+	for (int i = 0; i < 5; i++) {
+		if (guess[i] == good[i]) {
+			printf("%c je na %d. misto!!!\n", guess[i], i + 1);
+		}
+		else {
+			printf("%c neni na %d. misto!!!\n", guess[i], i + 1);
+		}
+	}
+	return 0;
+}
