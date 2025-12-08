@@ -275,44 +275,117 @@ int main() {
 }
 
 14. Worldle (WIP):
+#define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
 
 int main() {
-	char guess[6];
-	char good1[] = "David";
-	char good2[] = "Domca";
-	char good3[] = "Chleb";
-	char good4[] = "Seven";
-	char good[6];
+  char guess[6];
+  char good1[] = "david";
+  char good2[] = "domca";
+  char good3[] = "chleb";
+  char good4[] = "seven";
+  char good[6];
 
-	srand(time(NULL));
-	int random = rand() % 4 + 1;
-	if (random == 1) {
-		strcpy_s(good, good1);
-	}
-	else if (random == 2) {
-		strcpy_s(good, good2);
-	}
-	else if (random == 3) {
-		strcpy_s(good, good3);
-	}
-	else if (random == 4) {
-		strcpy_s(good, good4);
-	}
-	printf("%s\n\n", good);
-	printf("Hadej string (max 5 diky): ");
-	scanf_s("%5s", guess, 5);
+  srand(time(NULL));
+  int random = rand() % 4 + 1;
 
-	for (int i = 0; i < 5; i++) {
-		if (guess[i] == good[i]) {
-			printf("%c je na %d. misto!!!\n", guess[i], i + 1);
-		}
-		else {
-			printf("%c neni na %d. misto!!!\n", guess[i], i + 1);
-		}
+  if (random == 1) {
+    strcpy(good, good1);
+  }
+  else if (random == 2) {
+    strcpy(good, good2);
+  }
+  else if (random == 3) {
+    strcpy(good, good3);
+  }
+  else if (random == 4) {
+    strcpy(good, good4);
+  }
+
+  for (int j = 0; j < 5; j++) {
+    printf("\nHadej string(max 5!!!diky) :");
+    scanf("%5s", guess, 5);
+
+    if (strcmp(good, guess) == 0) {
+      printf("\n\nGratuluju, mas to spravne!!! (bez k Domcovi pro bonbony)\n\n");
+      return 0;
+    }
+    printf("%s\n", guess);
+    for (int i = 0; i < 5; i++) {
+      if (guess[i] == good[i]) {
+        printf("+");
+      }
+      else {
+        printf("-");
+      }
+    }
+  }
+
+  printf("\n\nSlovo bylo: %s\nNeuhadl jsi to (bez k Domcovi pro trest)\n\n", good);
+
+  return 0;
+}
+
+15. Function:
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int umocni3(int x) { //function
+	return x * x * x;
+}
+int main() {
+	int a = 10;
+	int cislo = umocni3(a);
+	printf("%d", cislo); //because function is in "int" have to write %d
+	return 0;
+}
+
+16. Maximum from 2 numbers (function):
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+int maximum(int x, int y) {
+	if (x < y) return y;
+	else if (x > y) return x;
+	else return x;
+}
+int main() {
+	int a, b;
+	printf("Zadej prvni cislo: ");
+	scanf("%d", &a);
+	printf("\nZadej druhe cislo: ");
+	scanf("%d", &b);
+
+	int c = maximum(a, b);
+	printf("\n\n%d je maximum\n\n", c);
+	return 0;
+}
+
+17. Calculate 3 objem valce:
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <math.h>
+
+float objem(float x, float y) {
+	return 3.14 * x * x * y;
+}
+int main(){
+	float a, b, c, soucet=0;
+	for (int i = 1; i <= 3; i++) {
+		printf("Zadej polomer %d. dortu: ", i);
+		scanf("%f", &a);
+		printf("\nZadej vysku %d. dortu: ", i);
+		scanf("%f", &b);
+		printf("\n");
+		float c = objem(a, b);
+		soucet += c;
 	}
+	printf("%.2f objem dortu", soucet);
 	return 0;
 }
