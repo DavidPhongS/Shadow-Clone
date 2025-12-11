@@ -389,3 +389,90 @@ int main(){
 	printf("%.2f objem dortu", soucet);
 	return 0;
 }
+18. Trojuhelnik:
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+void trojuhelnik(int patra) {
+	for (int i = 0; i < patra; i++) {
+		for (int j = 0; j < i + 1; j++) {
+			printf("#");
+		}
+		printf("\n");
+	}
+}
+
+int main() {
+	trojuhelnik(10);
+	return 0;
+}
+19. Pyramid:
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+void pyramida(int patra) {
+	for (int i = 1; i <= patra; i++) {
+		for (int j = 0; j < patra - i; j++) {
+			printf(" "); // vypise mezer zleva
+		}
+		for (int j = 0; j < (2 * i) - 1; j++) {
+			printf("#"); // (2 * 1) znamena ze vypise doleva i doprava znaky. -1 aby mohl zustat uprostred
+		}
+		printf("\n"); // vyska
+	}
+}
+int main() {
+	pyramida(10);
+	return 0;
+}
+20: Stojan (WIP):
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+
+void stojan(int patra) {
+	for (int i = 0; i < patra; i++) {
+		for (int j = 0; j < patra; j++) {
+			printf(" "); // vypise mezer zleva
+		}
+		for (int j = 0; j < i + 1 - i; j++) {
+			printf("#"); //telo
+		}
+		printf("\n"); // vyska
+	}
+}
+int main() {
+	stojan(10);
+	return 0;
+}
+21: String compare with return 1 (WIP):
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
+#include <string.h>
+
+int main() {
+	char a[51];
+	char b[51];
+
+	printf("Zadej string (max 50 pls): ");
+	scanf("%50s", a);
+
+	printf("\nZadej dalsi string (max 50 pls): ");
+	scanf("%50s", b);
+
+	int delka1 = strlen(a);
+	int delka2 = strlen(b);
+
+	if (delka1 != delka2) {
+		return 1;
+	}
+
+	for (int i = 0; i < delka1) {
+
+	}
+}
