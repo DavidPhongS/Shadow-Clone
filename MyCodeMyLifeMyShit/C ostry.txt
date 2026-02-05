@@ -1,0 +1,81 @@
+1. Calculate chikens:
+class Program
+{
+	static void Main()
+	{
+		Console.Write("Zadej celkovy pocet nohou zvirat (nehendikepovana): ");
+		int zvirat = int.Parse(Console.ReadLine());
+
+		Console.Write("Zadej celkovy pocet prasat: ");
+		int prasat = int.Parse(Console.ReadLine());
+		Console.WriteLine($"Slepic je: {(zvirat - (4 * prasat)) / 2}");
+	}
+}
+2. FizzBuzz:
+class Program
+{
+	static void Main()
+	{
+		Console.Write("Zadej max: ");
+		int max = int.Parse(Console.ReadLine());
+		for (int i = 1; i <= max; i++)
+		{
+			if (i % 15 == 0)
+			{
+				Console.WriteLine("FizzBuzz");
+			}
+			else if (i % 5 == 0)
+			{
+				Console.WriteLine("Buzz");
+			}
+			else if (i % 3 == 0)
+			{
+				Console.WriteLine("Fizz");
+			}
+			else
+			{
+				Console.WriteLine($"{i}");
+			}
+		}
+	}
+}
+3. Nejvetsi podil:
+class Program
+{
+	static int Ahoj(int a, int b)
+	{
+		int nejvetsi = 0;
+		int max = 0;
+		if (a == 0 || b == 0)
+		{
+			Console.WriteLine("Jedno z čísel je 0, což není platné pro hledání největšího společného dělitele.");
+			Environment.Exit(0);
+		}
+		if (a <=b)
+		{
+			max = a;
+		}
+		else if (a >= b)
+		{
+			max = b;
+		}
+
+		for (int i = 1; i <= max; i++)
+		{
+			if (a%i == 0 && b%i == 0)
+			{
+				nejvetsi = i;
+			}
+		}
+		return nejvetsi;
+	}
+	static void Main()
+	{
+		Console.WriteLine("Zadej prvni cislo: ");
+		int cislo1 = int.Parse(Console.ReadLine());
+
+		Console.WriteLine("Zadej druhe cislo: ");
+		int cislo2 = int.Parse(Console.ReadLine());
+		Console.WriteLine($"Nejvetsi spolecneho delitelne: {Ahoj(cislo1, cislo2)}");
+	}
+}
