@@ -11,6 +11,7 @@ class Program
 		Console.WriteLine($"Slepic je: {(zvirat - (4 * prasat)) / 2}");
 	}
 }
+
 2. FizzBuzz:
 class Program
 {
@@ -39,6 +40,7 @@ class Program
 		}
 	}
 }
+
 3. Nejvetsi podil:
 class Program
 {
@@ -48,7 +50,7 @@ class Program
 		int max = 0;
 		if (a == 0 || b == 0)
 		{
-			Console.WriteLine("Jedno z čísel je 0, což není platné pro hledání největšího společného dělitele.");
+			Console.WriteLine("Jedno z čísel je 0!");
 			Environment.Exit(0);
 		}
 		if (a <=b)
@@ -77,5 +79,50 @@ class Program
 		Console.WriteLine("Zadej druhe cislo: ");
 		int cislo2 = int.Parse(Console.ReadLine());
 		Console.WriteLine($"Nejvetsi spolecneho delitelne: {Ahoj(cislo1, cislo2)}");
+	}
+}
+
+4. Trojuhelnik:
+class Program
+{
+	static bool Trojuhelnik(int a, int b, int c)
+	{
+		return !((a + b) < c);
+	}
+	static void Main()
+	{
+		int a, b, c;
+		Console.WriteLine("zADEJ DELKU TROJUHELNIKU A:");
+		a = int.Parse(Console.ReadLine());
+		Console.WriteLine("zADEJ DELKU TROJUHELNIKU B:");
+		b = int.Parse(Console.ReadLine());
+		Console.WriteLine("zADEJ DELKU TROJUHELNIKU C:");
+		c = int.Parse(Console.ReadLine());
+
+		if (Trojuhelnik(a, b, c) == false) Console.WriteLine($"Trojuhelnik nelze sestrojit: ");
+		else 
+			Console.WriteLine($"Trojuhelnik lze sestrojit: ");
+
+	}
+}
+
+5. Kontrola 1 nebo 0:
+class Program
+{
+	static void Main()
+	{
+		string input = "";
+		Console.WriteLine("zadej cislo slozene jen z 0 nebo 1");
+		input = Console.ReadLine();
+
+		int delka = input.Length;
+		for (int i = 0; i < delka; i++)
+		{
+			if (input[i] != '0' && input[i] != '1')
+			{
+				Console.WriteLine("hej zadal jsi neco jineho nez 1 nebo 0");
+			}
+			else Console.WriteLine("Input is valid");
+		}
 	}
 }
