@@ -126,3 +126,53 @@ class Program
 		}
 	}
 }
+
+6. Sorting shit idk:
+
+class Program
+{
+	static void Main()
+	{
+		int[] vek = new int[10];
+
+		for (int i = 0; i <= 9; i++)
+		{
+			Console.WriteLine($"Zadej {i+1}. vek uzivatele: ");
+			vek[i] = int.Parse(Console.ReadLine());
+		}
+		int max = vek.Max();
+
+		int min = vek.Min();
+
+		int rozdil = max-min;
+
+		Array.Sort( vek ); //sap xep lai
+
+		Console.WriteLine($"Maximum je: {max}\nMinimum je: {min}\nRozidl je: {rozdil}\nTri nejnizsi hodnoty jsou: {vek[0]} {vek[1]} {vek[2]}\nMedian je: {(vek[4] + vek[5])/2}");
+	}
+}
+
+7. WIP:
+
+class Program
+{
+	static bool Kladny(int a,bool kladny)
+	{
+		if (a < 0)
+		{
+			kladny = false;
+		}
+		return kladny;
+	}
+	static void Main()
+	{
+		bool kladny = true;
+		int[] cisla = new int[10];
+
+		for (int i = 0; i <= 9; i++)
+		{
+			Console.WriteLine($"Zadej {i + 1}. cislo");
+			cisla[i] = int.Parse(Console.ReadLine());
+		}
+	}
+}
