@@ -208,33 +208,51 @@ class Program
 	}
 }
 
-9. Login atd.
-
-using System.Reflection;
+9. Email:
 
 class Program
 {
 	static void Main()
 	{
-		string[] otazky = new string[] { "Je David Vietnamec ?", "Ma licmen kokota?"," Ma Dostal holku?", "Je Fromel z Nemecka?", "Je Chlubna nejlepsi ucitel?" };
-		string[] odpovedi = new string[] { "ano", "ano", "mozna", "ne", "urcite" };
+		Console.WriteLine("Zadej email: ");
+		string login = Console.ReadLine();
 
-		int body = 0;
-		for (int i = 0; i < otazky.Length; i++)
+		if (login[0] == '@')
 		{
-			Console.WriteLine(otazky[i]);
-			Console.WriteLine("Odpovedi: ano/ne/mozna/urcite/urcitene");
-
-			string vstupOdUzivatele = Console.ReadLine().ToLower();
-			if (odpovedi[i] == vstupOdUzivatele)
-			{
-				Console.WriteLine("Goodboy\n");
-				body++;
-			}
-			else Console.Write($"Spatne! Spravna odpoved je: {odpovedi[i]}\n");
-
-
+			Console.WriteLine("@ nesmi byt prvni znak!");
+			Environment.Exit(0);
 		}
-		Console.Write($"Celkem bodu mas: {body}");
+		int delka = login.Length;
+		int pocetZavinacu = 0;
+		int pocetTecek = 0;
+		for (int i = 1; i < delka; i++)
+		{
+
+			if (login[i] == '@')
+			{
+				for (int j = i; j < delka; j++)
+				{
+					if (login[j] == '.')
+					{
+						pocetTecek++;
+					}
+				}
+				pocetZavinacu++;
+			}
+			if (pocetZavinacu == 2)
+			{
+				Console.WriteLine("Email obsahuje 2 @");
+				Environment.Exit(0);
+			}
+		}
+		if(pocetTecek == 0)
+		{
+			Console.WriteLine("Za @ musi byt minimalne jedna tecka!");
+			Environment.Exit(0);
+		}
+		else
+		{
+			Console.WriteLine("Gut");
+		}
 	}
 }
