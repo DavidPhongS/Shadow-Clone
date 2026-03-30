@@ -152,32 +152,7 @@ class Program
 	}
 }
 
-7. WIP:
-
-class Program
-{
-	static bool Kladny(int a,bool kladny)
-	{
-		if (a < 0)
-		{
-			kladny = false;
-		}
-		return kladny;
-	}
-	static void Main()
-	{
-		bool kladny = true;
-		int[] cisla = new int[10];
-
-		for (int i = 0; i <= 9; i++)
-		{
-			Console.WriteLine($"Zadej {i + 1}. cislo");
-			cisla[i] = int.Parse(Console.ReadLine());
-		}
-	}
-}
-
-8. Anomalie:
+7. Anomalie:
 
 class Program
 {
@@ -201,5 +176,65 @@ class Program
 
 		}
 		Console.WriteLine($"Anomalie: {anomalie}");
+	}
+}
+
+8. Quiz
+
+class Program
+{
+	static void Main()
+	{
+		string[] otazky = new string[] { "Je David Vietnamec ?", "Ma licmen kokota?"," Ma Dostal holku?", "Je Fromel z Nemecka?", "Je Chlubna nejlepsi ucitel?" };
+		string[] odpovedi = new string[] { "ano", "ano", "mozna", "ne", "urcite" };
+
+		int body = 0;
+		for (int i = 0; i < otazky.Length; i++)
+		{
+			Console.WriteLine(otazky[i]);
+			Console.WriteLine("Odpovedi: ano/ne/mozna/urcite/urcitene");
+
+			string vstupOdUzivatele = Console.ReadLine().ToLower();
+			if (odpovedi[i] == vstupOdUzivatele)
+			{
+				Console.WriteLine("Goodboy\n");
+				body++;
+			}
+			else Console.Write($"Spatne! Spravna odpoved je: {odpovedi[i]}\n");
+
+
+		}
+		Console.Write($"Celkem bodu mas: {body}");
+	}
+}
+
+9. Login atd.
+
+using System.Reflection;
+
+class Program
+{
+	static void Main()
+	{
+		string[] otazky = new string[] { "Je David Vietnamec ?", "Ma licmen kokota?"," Ma Dostal holku?", "Je Fromel z Nemecka?", "Je Chlubna nejlepsi ucitel?" };
+		string[] odpovedi = new string[] { "ano", "ano", "mozna", "ne", "urcite" };
+
+		int body = 0;
+		for (int i = 0; i < otazky.Length; i++)
+		{
+			Console.WriteLine(otazky[i]);
+			Console.WriteLine("Odpovedi: ano/ne/mozna/urcite/urcitene");
+
+			string vstupOdUzivatele = Console.ReadLine().ToLower();
+			if (odpovedi[i] == vstupOdUzivatele)
+			{
+				Console.WriteLine("Goodboy\n");
+				body++;
+			}
+			else Console.Write($"Spatne! Spravna odpoved je: {odpovedi[i]}\n");
+
+
+		}
+		Console.Write($"Celkem bodu mas: {body}");
 	}
 }
