@@ -256,3 +256,103 @@ class Program
 		}
 	}
 }
+
+10. Serazeny list:
+
+class Program
+{
+	static void Main()
+	{
+		List<int> list = new List<int> { 10, 5, 8, 9, 1, 2, 12, 46, 78 };
+
+		List<int> serazene = new List<int>();
+
+		int min;
+
+		while(list.Count > 0)
+		{
+			min = list.Min();
+			serazene.Add(min);
+			list.Remove(min);
+		}
+
+		Console.WriteLine("Serazeny list: ");
+		foreach(int s in serazene)
+		{
+			Console.WriteLine("     " + s);
+		}
+	}
+}
+
+11. Bubble Sort:
+using System.Collections.Generic;
+
+class Program
+{
+	static void Sort(List<int> list)
+	{
+		for (int i = 0; i < list.Count - 1; i++)
+		{
+			for (int j = 0; j < list.Count - 1; j++)
+			{
+
+				int temp = list[j];
+				int temp2 = list[j + 1];
+				if (temp > temp2)
+				{
+					list[j] = temp2;
+					list[j + 1] = temp;
+
+				}
+			}
+		}
+		foreach (int n in list)
+		{
+			Console.WriteLine("   " + n);
+		}
+	}
+	static void Main()
+	{
+		List<int> list = new List<int> { 6, 2, 8, 4, 10 };
+
+		Sort(list);
+
+	}
+}
+
+12. COOP:
+class Program
+{
+	static void Main()
+	{
+
+		Student karel = new Student("Karel", 5, "IT-3B");
+		Console.WriteLine(karel.Jmeno);
+
+		karel.PridejZnamku(5);
+	}
+}
+
+class Student
+{
+	//Atributy
+	public string Jmeno { get; set; }
+	public int Vek { get; set; }
+	public string Trida { get; set; }
+	public List<int> Znamky { get; set; }
+
+	//KONSTRUKTOR:
+	public Student(string jmeno, int vek, string trida)
+	{
+		Jmeno = jmeno;
+		Vek = vek;
+		Trida = trida;
+		Znamky = new List<int>();
+
+	}
+
+	public void PridejZnamku(int znamka)
+	{
+		Znamky.Add(znamka);
+	}
+}
