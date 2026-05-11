@@ -1,0 +1,134 @@
+1. COOP:
+
+class Program
+{
+	static void Main()
+	{
+
+		Student karel = new Student("Karel", 5, "IT-3B");
+
+		karel.PridejZnamku(5);
+		karel.VypisInfo();
+	}
+}
+
+class Student
+{
+	//Atributy
+	public string Jmeno { get; set; }
+	public int Vek { get; set; }
+	public string Trida { get; set; }
+	public List<int> Znamky { get; set; }
+
+	//KONSTRUKTOR:
+	public Student(string jmeno, int vek, string trida)
+	{
+		Jmeno = jmeno;
+		Vek = vek;
+		Trida = trida;
+		Znamky = new List<int>();
+
+	}
+
+	public void PridejZnamku(int znamka)
+	{
+		Znamky.Add(znamka);
+	}
+
+	public void VypisInfo()
+	{
+		Console.WriteLine ("Jmeno: " + Jmeno);
+		Console.WriteLine("Vek: " + Vek);
+		Console.WriteLine("Trida: " + Trida);
+		if (Znamky.Count > 0)
+		{
+			foreach (int z in Znamky)
+			{
+				Console.WriteLine(" " + z);
+			}
+		}
+	}
+}
+
+2. Banka:
+using System.Diagnostics;
+
+class Program
+{
+	static void Main()
+	{
+		Console.WriteLine("Kolik mas penize na bezny ucet?");
+		double zustatekBU = double.Parse(Console.ReadLine());
+
+		Console.WriteLine("Kolik mas penize na sporici ucet?");
+		double zustatekSU = double.Parse(Console.ReadLine());
+
+		Bank michael = new Bank (zustatekBU, zustatekSU);
+
+		bool aktivace = true;
+		while (aktivace)
+		{
+			Console.WriteLine("Co chces delat?\n(V)ybrat penize\n(S)ebrat penize\n(Z)obrazit informaci\n(K)onec");
+			char halo = char.ToUpper(char.Parse(Console.ReadLine()));
+
+			switch (halo)
+			{
+				case 'V':
+					Console.WriteLine("Zadej kolik penez chces pridat: ");
+					double pridat = double.Parse(Console.ReadLine());
+					michael.PridatPenize(pridat);
+					break;
+
+				case 'S':
+					Console.WriteLine("Zadej kolik penez chces sebrat: ");
+					double sebrat = double.Parse(Console.ReadLine());
+					michael.SebratPenize(sebrat);
+					break;
+
+				case 'Z':
+					michael.ZobrazitInformace();
+					break;
+
+				case 'K':
+					Console.WriteLine("Ukončuji program. Nashledanou!");
+					break;
+
+				default:
+					Console.WriteLine("Neplatná volba, zkus to znovu.");
+					break;
+			}
+		}
+
+
+	}
+}
+
+class Bank
+{
+	public double ZustatekBU { get; set; }
+	public double ZustatekSU { get; set; }
+
+	public Bank(double zustatekBU, double zustatekSU)
+	{
+		ZustatekBU = zustatekBU;
+		ZustatekSU = zustatekSU;
+	}
+
+	public void PridatPenize(double penize)
+	{
+		ZustatekBU += penize;
+		Console.WriteLine("Penize: " + ZustatekBU);
+	}
+	public void SebratPenize(double penize)
+	{
+		ZustatekBU -= penize;
+		Console.WriteLine("Penize: " + ZustatekBU);
+	}
+
+	public void ZobrazitInformace()
+	{
+		Console.WriteLine($"Penize v BU: {ZustatekBU}\nPenize v SU: {ZustatekSU}");
+	}
+
+
+}
