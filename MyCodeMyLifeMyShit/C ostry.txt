@@ -320,39 +320,38 @@ class Program
 	}
 }
 
-12. COOP:
+12. BezDuplicate:
 class Program
 {
+	static List<int> BezDup(List<int> list)
+	{
+		list.Sort();
+		List<int> bezdup = new List<int>();
+		if (list.Count == 0) return bezdup;
+		// První číslo do nového seznamu přidáme vždy
+		bezdup.Add(list[0]);
+		// Cyklus začneme až od 1 (druhého čísla) a porovnáváme ho s tím PŘEDCHOZÍM
+		for (int i = 1; i < list.Count; i++)
+		{
+			// Pokud je aktuální číslo jiné než to předchozí, přidáme ho
+			if (list[i] != list[i - 1])
+			{
+				bezdup.Add(list[i]);
+			}
+		}
+		// Vrátíme hotový seznam bez duplicit
+		return bezdup;
+	}
+
 	static void Main()
 	{
-
-		Student karel = new Student("Karel", 5, "IT-3B");
-		Console.WriteLine(karel.Jmeno);
-
-		karel.PridejZnamku(5);
-	}
-}
-
-class Student
-{
-	//Atributy
-	public string Jmeno { get; set; }
-	public int Vek { get; set; }
-	public string Trida { get; set; }
-	public List<int> Znamky { get; set; }
-
-	//KONSTRUKTOR:
-	public Student(string jmeno, int vek, string trida)
-	{
-		Jmeno = jmeno;
-		Vek = vek;
-		Trida = trida;
-		Znamky = new List<int>();
-
-	}
-
-	public void PridejZnamku(int znamka)
-	{
-		Znamky.Add(znamka);
+		List<int> seznam = new List<int> { 15, 85, 6515, 15, 452, 681, 38, 1, 1, 1, 1, 56, 85, 15 };
+		// Tady si výsledek metody musíme uložit zpět do naší proměnné
+		seznam = BezDup(seznam);
+		// Vypíšeme pročištěný seznam
+		foreach (int i in seznam)
+		{
+			Console.WriteLine(i);
+		}
 	}
 }
